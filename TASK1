@@ -1,0 +1,53 @@
+//Task 1. Number game
+package myPractice;  //package name
+import java.util.Random;   
+import java.util.Scanner;
+//main class
+public class NumberGuess {
+
+  public static void main(String[] args) {
+    Random Random_num= new Random();      //object creation - Random_num
+    int right_guess=Random_num.nextInt(100);  
+    int turns=0;           //initialization of turns
+    Scanner sc=new Scanner(System.in);    //taking input from the user
+    System.out.println("Now it's time to guess a number between 1 to 100. Remember you have only 10 turns to guess");
+    System.out.println("Have fun!!");
+    
+    int guess;
+    int i=0;
+    boolean win=false;
+    while(win==false) {                 //while loop
+      guess=sc.nextInt();
+      turns++;
+    
+    if(guess==right_guess) {            //if else statement
+      win=true;
+    }
+    else if(i>8){
+      System.out.println("No win! the right answer was: "+right_guess);
+      return;
+    }
+    else if(guess<right_guess){
+      i++;
+      System.out.println("Yor Guess is lower than the right guess! Turns left: "+(10-i));
+      
+      
+      
+    }
+    else if(guess>right_guess) {
+      i++;
+      System.out.println("Your Guess Is Higher Than THe Right Guess! Turns left: "+(10-i));
+      
+    }
+    
+    
+
+  }
+    System.out.println("Hurray!!! You won the game!");                   //printing the result
+    System.out.println("The number was "+right_guess);
+    System.out.println("You used "+turns+" turns to guess the right number");
+    System.out.println("Your score is "+((11-turns)*10)+" out of 100");
+    
+
+}
+}
