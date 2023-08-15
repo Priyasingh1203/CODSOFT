@@ -1,0 +1,54 @@
+//Task 3. ATM Interface
+package myPractice;
+import java.util.Scanner;
+public class ATM_Interface
+{
+    public static void main(String args[] )
+    { 
+        int bal = 10000, wdrw, dep;
+        Scanner sc = new Scanner(System.in);
+        while(true)
+        {
+            System.out.println("ATM Interface");
+            System.out.println("1.WITHDRAW MONEY");
+            System.out.println("2.DEPOSIT MONEY");
+            System.out.println("3.CHECK YOUR BALANACE");
+            System.out.println("4.EXIT OPERATION");
+            System.out.print("Write your desired number:");
+            int n = sc.nextInt();
+            switch(n) //switch case to operate different cases
+            {
+                case 1:
+                System.out.print("Enter the amount you want to withdraw:");
+                wdrw = sc.nextInt();
+                if(bal >= wdrw)
+                {
+                    bal = bal - wdrw;
+                    System.out.println("Please collect your money safely!");
+                }
+                else
+                {
+                    System.out.println("Sorry! Insufficient Balance");
+                }
+                System.out.println("");
+                break;
+ 
+                case 2:
+                System.out.print("Enter how much amount you want to deposit");
+                dep = sc.nextInt();
+                bal = bal + dep;
+                System.out.println("Your Money has been successfully deposited");
+                System.out.println("");
+                break;
+ 
+                case 3:
+                System.out.println("Your Balance left : "+bal);
+                System.out.println("");
+                break;
+ 
+                case 4:
+                System.exit(0);
+            }
+        }
+    }
+}
